@@ -1,0 +1,423 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    min-height: 100%;
+    max-height: 100%;
+    width: 100vw;
+    min-width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/*---ASIDE_STYLE-------------------------------------*/
+
+
+.header_wrapper {
+    width: 100%;
+    background: #181818;
+    display: flex;
+    align-items: center;
+    height: 28%;
+    min-height: fit-content;
+}
+
+/*Score style*/
+
+.score_wrapper {
+    background: #f5ae07;
+    height: 100%;
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    padding: 5% 2%;
+    overflow: hidden;
+}
+
+.score_wrapper:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #e7934c;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease-in;
+    z-index: 2;
+}
+
+.score_wrapper.active:before {
+    transform: translateY(-100%);
+}
+
+.score_text {
+    color: #ad3613;
+    font-size: 7em;
+    font-family: monospace;
+}
+
+.score {
+    color: #ad3613;
+    font-size: 7em;
+    font-family: monospace;
+    z-index: 1;
+    transition: all 0.2s ease-in-out;
+}
+/*Score style end*/
+
+
+/*Example screen style*/
+.example_screen_wrapper {
+    width: 33%;
+    height: 115%;
+    background: white;
+    border: 5px dashed #377503;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    z-index: 100;
+}
+/*Example screen style end*/
+
+
+/*Timer style*/
+.timer_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5% 2%;
+    height: 50%;
+    flex: 1 1 50%;
+}
+
+.timer_text {
+    color: white;
+    font-size: 5em;
+    text-align: center;
+}
+
+.fa-clock {
+    color: white;
+    font-size: 60px;
+    width: 60px;
+    height: 60px;
+    z-index: 100;
+}
+/*Timer style end*/
+
+
+/*Button style*/
+.controls {
+    width: 34%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 5px 0;
+    background: #090970;
+    overflow: hidden;
+
+}
+
+.buttons_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    flex: 1 1 50%;
+}
+
+.begin_button {
+    height: fit-content;
+    width: 50%;
+    min-width: fit-content;
+    border: 3px solid #ffffff;
+    background: #8e97d9;
+    color: #051859;
+    font-size: 4em;
+    border-radius: 5px;
+    cursor: pointer;
+    pointer-events: none;
+    position: relative;
+    box-shadow: 3px 3px #7573b9;
+    overflow: hidden;
+}
+
+.begin_button:active {
+    box-shadow: none;
+    transform: translateX(3px) translateY(3px);
+}
+
+.begin_button::before,
+.begin_button::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    background: black;
+    transition: all 1s ease-in-out;
+    opacity: 0.1;
+}
+
+.begin_button.active::before {
+    left: -100%;
+}
+
+.begin_button.active::after {
+    right: -100%;
+}
+
+.begin_button::before{
+    left: 0;
+
+}
+
+.begin_button::after{
+    right: 0;
+}
+
+.fa-volume-high {
+    color: white;
+    font-size: 60px;
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+}
+
+.fa-volume-high:after {
+    content: '';
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: -130%;
+    pointer-events: none;
+    background: #090970;
+    transition: all 0.7s ease-in;
+    z-index: 100;
+}
+
+.fa-volume-high.active:after {
+    right: -70%;
+}
+
+/*Button style end*/
+
+/*---GAME_SPACE_STYLE-------------------------------------*/
+
+.game_space_wrapper {
+    height: 66%;
+    overflow: hidden;
+}
+
+footer {
+    background: rgb(4, 24, 58);
+    height: 100%;
+    width: 100%;
+    transform: translateY(94%);
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.login_box.active {
+    transform: translateY(0);
+}
+
+.login_box {
+    transition: 0.5s all ease-in-out;
+    transform: translateX(-300%);
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-direction: column;
+    width: 20%;
+    min-width: fit-content;
+    height: 40%;
+    max-height: 40%;
+    border: 1px solid white;
+    border-radius: 15px;
+    background: #de8989;
+    box-shadow: 5px 5px rgba(215, 3, 3, 0.1);
+    padding: 5px 10px;
+}
+
+
+.login_wrapper,
+.password_wrapper{
+    display: flex;
+    width: 100%;
+}
+
+.login_box label {
+    font-size: 40px;
+    color: white;
+    width: 50%;
+}
+
+.login_box input {
+    border-radius: 15px;
+    border: 1px solid black;
+    padding: 5px;
+    font-size: 25px;
+    width: 50%;
+}
+
+.login_buttons_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.login_buttons_wrapper button {
+    width: 30%;
+    min-width: fit-content;
+    height: 50px;
+    font-size: 25px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.1s all ease-in-out;
+}
+
+.login_buttons_wrapper button:hover {
+    transform: scale(1.2);
+    font-weight: bold;
+}
+
+.login_header_text {
+    color: white;
+    font-size: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+
+.sign_up_box {
+    display: flex;
+    align-items: end;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-direction: column;
+    width: 20%;
+    min-width: fit-content;
+    height: 40%;
+    max-height: 40%;
+    border: 1px solid white;
+    border-radius: 15px;
+    background: #de8989;
+    box-shadow: 5px 5px rgba(215, 3, 3, 0.1);
+    padding: 5px 15px;
+    transform: translateY(150%);
+    transition: all 0.5s ease-in-out;
+}
+
+.sign_up_box.active {
+    transform: translateY(0);
+}
+
+.sign_up_login_wrapper,
+.sign_up_password_wrapper,
+.repead_password_wrapper{
+    display: flex;
+    width: 100%;
+}
+
+.sign_up_box label {
+    font-size: 40px;
+    color: white;
+    width: 50%;
+}
+
+.sign_up_box input {
+    border-radius: 15px;
+    border: 1px solid black;
+    padding: 5px;
+    font-size: 25px;
+    width: 50%;
+}
+
+
+.sign_up_button {
+    width: 30%;
+    min-width: fit-content;
+    height: 50px;
+    font-size: 25px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.1s all ease-in-out;
+}
+
+.sign_up_button:hover {
+    transform: scale(1.2);
+    font-weight: bold;
+}
+
+.sign_up_header_text {
+    color: white;
+    font-size: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+.statistic_box * {
+    color: white;
+    font-size: 60px;
+}
+
+.hidden {
+    display: none;
+}
+
+.fa-bars {
+    font-size: 60px;
+    color: white;
+    height: fit-content;
+    cursor: pointer;
+}
+
+footer.active {
+    transform: translateY(0);
+}
+
+
+canvas .active{
+    pointer-events: auto;
+}
+
+canvas {
+    pointer-events: none;
+}
+
+
+.active {
+    opacity: 100%;
+    pointer-events: auto;
+}
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course work</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/7bf16121b2.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+</head>
+<body>
+
+<audio src="sounds/bg_music.mp3" id="bg_music" autoplay></audio>
+
+<header class="header_wrapper">
+    <div class="score_wrapper">
+        <h1 class="score_text">Score</h1>
+        <h1 class="score" id="score_text">0</h1>
+    </div>
+    <div id="example_screen_wrapper" class="example_screen_wrapper">
+        <canvas id='example_canvas'>
+        </canvas>
+    </div>
+    <div class="controls">
+        <div class="timer_wrapper">
+            <i class="fa-solid fa-clock"></i>
+            <h1 class="timer_text">0</h1>
+        </div>
+        <div class="buttons_wrapper">
+            <button class="begin_button active">Begin</button>
+            <i class="fa-solid fa-volume-high" id="volume"></i>
+        </div>
+    </div>
+</header>
+
+<main class="game_space_wrapper" id="game_space">
+    <canvas id="game_space_canvas">
+
+    </canvas>
+</main>
+
+<footer id="footer">
+    <i class="fa-solid fa-bars" id="footer_menu_button"></i>
+    <div class="login_box active" id="login_box">
+        <h1 class="login_header_text">Hi, User!</h1>
+
+        <div class="login_wrapper">
+            <label for="login_input">Login</label>
+            <input type="text" class="login_input" id="login_input">
+        </div>
+
+        <div class="password_wrapper">
+            <label for="password_input">Password</label>
+            <input type="password" class="password_input" id="password_input">
+        </div>
+        <div class="login_buttons_wrapper">
+            <button class="login_button" id="login_button">Login</button>
+            <button class="sign_up_button" id="sign_up_button">Sign Up</button>
+        </div>
+    </div>
+
+    <div class="sign_up_box" id="sign_up_box">
+        <h1 class="sign_up_header_text">Let's go!</h1>
+
+        <div class="login_wrapper">
+            <label for="sign_up_login_input">Login</label>
+            <input type="text" class="login_input" id="sign_up_login_input">
+        </div>
+
+        <div class="password_wrapper">
+            <label for="sign_up_password_input">Password</label>
+            <input type="password" class="password_input" id="sign_up_password_input">
+        </div>
+
+        <div class="repead_password_wrapper">
+            <label for="sign_up_repead_password_input">Repead</label>
+            <input type="password" class="password_input" id="sign_up_repead_password_input">
+        </div>
+
+        <button class="sign_up_button" id="sign_up_confirm_button">Go!</button>
+    </div>
+
+    <div class="statistic_box hidden" id="statistic_box">
+        <h1 class="statistic_title" id="statistic_title"></h1>
+        <p class="statistic_high_score" id="statistic_high_score"></p>
+        <p class=statistic_games_played id="statistic_games_played"></p>
+    </div>
+</footer>
+
+
+<script type='module' src="script.js"></script>
+</body>
+</html>
